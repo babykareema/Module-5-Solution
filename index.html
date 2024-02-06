@@ -1,72 +1,30 @@
+<!-- HTML snippet for the home page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Web App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+    <script>
+        // Function to generate a random category short name
+        function getRandomCategory() {
+            var categories = ["Lunch", "Dinner", "Sushi", "Breakfast"]; // Add more categories as needed
+            var randomIndex = Math.floor(Math.random() * categories.length);
+            return categories[randomIndex];
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
+        // Function to redirect to a random category page
+        function redirectToRandomCategory() {
+            var randomCategory = getRandomCategory();
+            window.location.href = "/menu/" + randomCategory; // Modify the URL structure as needed
         }
-
-        main {
-            padding: 20px;
-        }
-
-        .tile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 150px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        .tile:hover {
-            background-color: #eee;
-        }
-    </style>
+    </script>
 </head>
 <body>
-
-<header>
-    <h1>Restaurant Web App</h1>
-</header>
-
-<main>
-    <div class="tile" onclick="navigateTo('Menu')">Menu</div>
-    <div class="tile" onclick="navigateToRandomCategory()">Specials</div>
-    <div class="tile" onclick="navigateTo('Map')">Map</div>
-</main>
-
-<script>
-    function navigateTo(page) {
-        alert('Redirecting to ' + page + ' page'); // You can replace this with actual navigation logic
-    }
-
-    function navigateToRandomCategory() {
-        // List of possible categories
-        const categories = ['Lunch', 'Dinner', 'Sushi', 'Drinks', 'Desserts'];
-
-        // Get a random category
-        const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-
-        // Redirect to the random category page
-        alert('Redirecting to ' + randomCategory + ' page'); // You can replace this with actual navigation logic
-    }
-</script>
-
+    <div id="tiles">
+        <div class="tile" onclick="redirectToRandomCategory()">Menu</div>
+        <div class="tile" onclick="redirectToRandomCategory()">Specials</div>
+        <div class="tile" onclick="redirectToMap()">Map</div> <!-- Assuming redirectToMap() exists -->
+    </div>
 </body>
 </html>
